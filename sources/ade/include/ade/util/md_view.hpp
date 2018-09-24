@@ -431,6 +431,7 @@ struct DynMdView final
         ADE_ASSERT(span.dims_count() == count());
         for (auto i: util::iota(count()))
         {
+            ADE_UNUSED(i);
             ADE_ASSERT(span[i].begin <= span[i].end);
             ADE_ASSERT(span[i].begin >= 0 && span[i].end <= dimensions[i].length);
         }

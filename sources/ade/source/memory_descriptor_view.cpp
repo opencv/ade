@@ -310,10 +310,12 @@ bool operator!=(const MemoryDescriptorView& ref, std::nullptr_t)
 
 void MemoryDescriptorView::checkSpans(MemoryDescriptor& descriptor) const
 {
+    ADE_UNUSED(descriptor);
     ADE_ASSERT(descriptor.dimensions().dims_count() == m_span.dims_count());
     for (auto i: util::iota(m_span.dims_count()))
     {
         auto& val = m_span[i];
+        ADE_UNUSED(val);
         ADE_ASSERT(val.begin >= 0);
         ADE_ASSERT(val.end <= descriptor.dimensions()[i]);
     }

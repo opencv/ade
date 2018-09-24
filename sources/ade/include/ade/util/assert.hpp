@@ -70,6 +70,11 @@ namespace details
 /// @param str String description.
 #define ADE_UNREACHABLE(str) ADE_ASSERT_STRONG(!str)
 
+/// Mark variable UNUSED, suitable if it is used only in ADE_ASSERT
+///
+/// @param x Variable to mark
+#define ADE_UNUSED(x) (void)(x)
+
 namespace ade
 {
 /// Convenient function for exception throwing.
