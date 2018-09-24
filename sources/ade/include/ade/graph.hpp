@@ -10,8 +10,10 @@
 #define ADE_GRAPH_HPP
 
 #include <memory>
+#include <functional>
 #include <vector>
 #include <unordered_map>
+#include <string>
 
 #include "util/assert.hpp"
 #include "util/range.hpp"
