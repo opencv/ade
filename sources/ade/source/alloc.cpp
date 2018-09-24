@@ -6,7 +6,12 @@
 
 #include "ade/memory/alloc.hpp"
 
+#ifdef WIN32
 #include <malloc.h>
+#else
+#include <algorithm>
+#include <stdlib.h>
+#endif
 
 #include "ade/util/math.hpp"
 #include "ade/util/assert.hpp"
@@ -20,7 +25,10 @@ void* aligned_alloc(std::size_t size, std::size_t alignment)
 #ifdef WIN32
     return _aligned_malloc(size, alignment);
 #else
-    return memalign(alignment, size);
+    void* ret = nullptr;
+    auto res = posix_memalign(&ret, std::max(sizeof(void*), alignment), size);
+    (void)res;
+    return ret;
 #endif
 }
 
