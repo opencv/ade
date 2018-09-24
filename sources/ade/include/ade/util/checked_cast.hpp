@@ -104,6 +104,7 @@ struct CheckedCastDefHandler final
     template<typename T>
     void operator()(bool valid, T&& /*value*/) const
     {
+        ADE_UNUSED(valid);
         ADE_ASSERT(valid);
     }
 };

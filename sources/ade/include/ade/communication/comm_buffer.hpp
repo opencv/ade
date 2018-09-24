@@ -107,6 +107,7 @@ class DataBufferView final
         Span ret = span + m_span.origin();
         for (auto i: util::iota(m_span.dims_count()))
         {
+            ADE_UNUSED(i);
             ADE_ASSERT(ret[i].begin >= m_span[i].begin);
             ADE_ASSERT(ret[i].end   <= m_span[i].end);
         }

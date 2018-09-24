@@ -293,6 +293,7 @@ ade::IDataBuffer::MapId HostBufferImpl::map(const Span& span, Access /*access*/)
     ADE_ASSERT(nullptr != view);
     ADE_ASSERT(span.dims_count() == m_size.dims_count());
     auto accessCount = ++m_accessCount;
+    ADE_UNUSED(accessCount);
     ADE_ASSERT(accessCount > 0);
     return MapId{view.slice(span), 0};
 }
@@ -300,6 +301,7 @@ ade::IDataBuffer::MapId HostBufferImpl::map(const Span& span, Access /*access*/)
 void HostBufferImpl::unmap(const MapId& /*id*/)
 {
     auto accessCount = --m_accessCount;
+    ADE_UNUSED(accessCount);
     ADE_ASSERT(accessCount >= 0);
 }
 
