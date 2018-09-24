@@ -77,7 +77,7 @@ class Metadata final
 
         MetadataHolder& operator=(const MetadataHolder&) = delete;
 
-        virtual MetadataHolderPtr clone() const
+        virtual MetadataHolderPtr clone() const override
         {
             return MetadataHolderPtr(new MetadataHolder<T>(*this));
         }
