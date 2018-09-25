@@ -24,7 +24,7 @@ if(FORCE_ADE_ASSERTS)
     target_compile_definitions( ${PROJECT_NAME} PUBLIC FORCE_ADE_ASSERTS )
 endif()
 
-if(BUILD_DOCUMENTATION)
+if(BUILD_ADE_DOCUMENTATION)
     find_package(Doxygen REQUIRED)
 
     set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)

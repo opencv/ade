@@ -25,18 +25,18 @@ After a successfull compilation binaries should reside in `./lib` and
 
 to run ADE Framework test suite (ADE Framework tests + utility tests).
 
-If you want to build tutorial samples set `-DBUILD_TUTORIAL=ON` to
+If you want to build tutorial samples set `-DBUILD_ADE_TUTORIAL=ON` to
 cmake.
 
 Building with tutorial:
 
-    $ cmake -DBUILD_TUTORIAL=ON /path/to/ade/repository
+    $ cmake -DBUILD_ADE_TUTORIAL=ON /path/to/ade/repository
     $ make -j
 
 Additional information on tutorial samples can be found in
 `./tutorial/README.md`.
 
-If you want to build library tests set `-DENABLE_TESTING=ON` to cmake.
+If you want to build library tests set `-DENABLE_ADE_TESTING=ON` to cmake.
 Tests require gtest (https://github.com/google/googletest/releases).
 
 Building gtest:
@@ -46,7 +46,7 @@ Building gtest:
 
 Building with tests:
 
-    $ cmake -DENABLE_TESTING=ON -DGTEST_ROOT=/gtest/install/path /path/to/ade/repository
+    $ cmake -DENABLE_ADE_TESTING=ON -DGTEST_ROOT=/gtest/install/path /path/to/ade/repository
     $ make -j
 
 You can build library with hardened asserts via
@@ -59,7 +59,7 @@ input directly and doesn't read any files or sockets.  If you want to
 use this library to process any input from external source you must
 validate it before doing any library calls.
 
-To build documentation set `-DBUILD_DOCUMENTATION=ON`. Documentation
+To build documentation set `-DBUILD_ADE_DOCUMENTATION=ON`. Documentation
 can be found in `./doc` directory. Doxygen is required.
 
 ## Support

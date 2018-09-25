@@ -179,6 +179,7 @@ void findPaths(const NodeHandle& src, const NodeHandle& dst,
                const std::vector<NodeHandle>& path,
                const NodeHandle& prev, const NodeHandle& next)
     {
+        ADE_UNUSED(prev);
         ADE_ASSERT(nullptr != prev);
         ADE_ASSERT(nullptr != next);
         if (next == dst)
