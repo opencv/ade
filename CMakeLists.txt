@@ -8,10 +8,10 @@ cmake_minimum_required(VERSION 3.2)
 
 project(ade)
 
-option(ENABLE_TESTING      "Build tests, require google test" OFF)
-option(BUILD_TUTORIAL      "Build tutorial samples"           OFF)
-option(FORCE_ADE_ASSERTS   "Always enable ADE_ASSERT"         OFF)
-option(BUILD_DOCUMENTATION "Build doxygen documentation"      OFF)
+option(ENABLE_ADE_TESTING      "Build tests, require google test" OFF)
+option(BUILD_ADE_TUTORIAL      "Build tutorial samples"           OFF)
+option(FORCE_ADE_ASSERTS       "Always enable ADE_ASSERT"         OFF)
+option(BUILD_ADE_DOCUMENTATION "Build doxygen documentation"      OFF)
 
 # TODO: this is horrible hack, we must follow cmake
 # build/install policy
@@ -48,12 +48,12 @@ endif(MSVC)
 
 add_subdirectory(sources/ade/)
 
-if(ENABLE_TESTING)
+if(ENABLE_ADE_TESTING)
     enable_testing()
     add_subdirectory(sources/tests)
 endif()
 
-if(BUILD_TUTORIAL)
+if(BUILD_ADE_TUTORIAL)
     add_subdirectory(tutorial)
 endif()
 

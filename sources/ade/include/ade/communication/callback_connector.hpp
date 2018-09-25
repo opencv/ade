@@ -199,7 +199,7 @@ std::function<void()> CallbackConnector<Args...>::finalize()
         }
     }
     ADE_ASSERT(nullptr != m_producerCallback);
-    return std::move(resetter);
+    return resetter;
 }
 
 template<typename... Args>
