@@ -6,7 +6,7 @@
 
 #include "ade/memory/alloc.hpp"
 
-#if defined(WIN32) || defined(__ANDROID__) || defined(ANDROID)
+#if defined(_WIN32) || defined(__ANDROID__) || defined(ANDROID)
 #include <malloc.h>
 #else
 #include <algorithm>
@@ -22,7 +22,7 @@ namespace ade
 void* aligned_alloc(std::size_t size, std::size_t alignment)
 {
     ADE_ASSERT(util::is_pow2(alignment));
-#if defined(WIN32)
+#if defined(_WIN32)
     return _aligned_malloc(size, alignment);
 #elif defined(__ANDROID__) || defined(ANDROID)
     return memalign(alignment, size);
@@ -36,7 +36,7 @@ void* aligned_alloc(std::size_t size, std::size_t alignment)
 
 void aligned_free(void* ptr)
 {
-#if defined(WIN32)
+#if defined(_WIN32)
     return _aligned_free(ptr);
 #else
     return free(ptr);
