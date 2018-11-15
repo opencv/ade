@@ -1,5 +1,7 @@
 # ADE Framework
 
+[![Build Status](https://travis-ci.org/opencv/ade.svg?branch=master)](https://travis-ci.org/opencv/ade)
+
 ## Intro
 
 ADE Framework is a graph construction, manipulation, and processing
