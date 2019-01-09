@@ -15,7 +15,7 @@ else()
 
     ExternalProject_Add(
         GTest
-        URL https://github.com/google/googletest/archive/release-1.8.0.zip
+        URL https://github.com/google/googletest/archive/release-1.8.1.zip
         CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCMAKE_INSTALL_PREFIX:PATH=${GTEST_INSTALL_DIR} -Dgtest_force_shared_crt=ON
         LOG_DOWNLOAD ON
         LOG_CONFIGURE ON
