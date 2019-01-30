@@ -1,6 +1,6 @@
 # ADE Framework
 
-[![Build Status](https://travis-ci.org/opencv/ade.svg?branch=master)](https://travis-ci.org/opencv/ade)
+[![Build Status](http://134.191.240.124/buildStatus/icon?job=ade/master/trigger)](http://134.191.240.124/job/ade/job/master/job/trigger/)
 
 ## Intro
 
