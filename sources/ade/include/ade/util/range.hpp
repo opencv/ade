@@ -132,10 +132,11 @@ struct IterRange
 
     template<typename I1 = BeginT, typename I2 = EndT,
              util::enable_b_t<(sizeof(std::declval<I2>() - std::declval<I1>()) > 0)> = true> //SFINAE
-    auto size() const
-    ->decltype(std::declval<I2>() - std::declval<I1>())
+    std::size_t size() const
     {
-        return endIter - beginIter;
+        auto diff = endIter - beginIter;
+        ADE_ASSERT(diff >= 0);
+        return static_cast<std::size_t>(diff);
     }
 
     // TODO: bidirectional and random access ranges
