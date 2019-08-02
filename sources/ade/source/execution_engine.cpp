@@ -138,7 +138,7 @@ std::unique_ptr<Executable> ExecutionEngine::createExecutable(const Graph& graph
         }
     }
 
-    return ret;
+    return std::move(ret);
 }
 
 void ExecutionEngine::addExecutableDependency(const std::string& lazyPassName)
