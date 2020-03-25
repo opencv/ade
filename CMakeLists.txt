@@ -8,6 +8,10 @@ cmake_minimum_required(VERSION 3.2)
 
 project(ade)
 
+if(POLICY CMP0063)
+    cmake_policy(SET CMP0063 NEW)
+endif()
+
 option(ENABLE_ADE_TESTING      "Build tests, require google test" OFF)
 option(BUILD_ADE_TUTORIAL      "Build tutorial samples"           OFF)
 option(FORCE_ADE_ASSERTS       "Always enable ADE_ASSERT"         OFF)
