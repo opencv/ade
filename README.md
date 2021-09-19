@@ -67,7 +67,7 @@ can be found in `./doc` directory. Doxygen is required.
 ## Support
 
 Current ADE Framework support model is:
-* ADE Framework is mainly used a building block for other projects.
+* ADE Framework is mainly used as a building block for other projects.
 * ADE Framework major version are synchronized with that other
   projects releases.
 * ADE Framework accepts pull requests but is stabilized prior to a
