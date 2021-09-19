@@ -55,7 +55,7 @@ You can build library with hardened asserts via
 `-DFORCE_ADE_ASSERTS=ON` option, forcing `ADE_ASSERT` to be present
 even in release builds.
 
-This library only do error checking in debug or `FORCE_ADE_ASSERTS=ON`
+This library only does error checking in debug or `FORCE_ADE_ASSERTS=ON`
 builds due to performance reasons.  Library doesn't process any user
 input directly and doesn't read any files or sockets.  If you want to
 use this library to process any input from external source you must
