@@ -9,6 +9,7 @@
 #ifndef ADE_TYPED_GRAPH_HPP
 #define ADE_TYPED_GRAPH_HPP
 
+#include <cstdint>
 #include <unordered_set>
 #include <string>
 
