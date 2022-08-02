@@ -60,6 +60,13 @@ struct and_<T0, T...> : and_< T0, and_<T...> > {};
 template<typename T, typename ...Ts>
 struct is_one_of : or_< std::is_same<T,Ts>... > {};
 
+template <typename T>
+struct is_pod : std::integral_constant
+<
+    bool,
+    std::is_trivial<T>::value && std::is_standard_layout<T>::value
+> {};
+
 template<bool v>
 using enable_b_t = typename std::enable_if< v, bool >::type;
 

@@ -234,7 +234,7 @@ inline auto raw_copy(const SrcRange& src, DstRange&& dst)
 {
     static_assert(std::is_same< util::decay_t<decltype(*data(src))>,
                                 util::decay_t<decltype(*data(dst))> >::value, "Types must be same");
-    static_assert(std::is_pod< util::decay_t<decltype(*data(src))> >::value, "Types must be pod");
+    static_assert(is_pod< util::decay_t<decltype(*data(src))> >::value, "Types must be pod");
     static_assert(sizeof(src[std::size_t{}]) == sizeof(dst[std::size_t{}]), "Size mismatch");
     const auto src_size = size(src);
     const auto dst_size = size(dst);
