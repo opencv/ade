@@ -10,6 +10,10 @@
 #define ADE_UTIL_TYPE_TRAITS_HPP
 
 #include <type_traits>
+#if defined (__has_include) && __has_include(<version>)
+    #include <version>
+#endif
+
 
 namespace ade
 {
@@ -83,9 +87,13 @@ using conditional_t = typename std::conditional<B,T,F>::type;
 template<typename... Types>
 using common_type_t = typename std::common_type<Types...>::type;
 
-template<class T>
-using result_of_t = typename std::result_of<T>::type;
-
+#ifdef __cpp_lib_is_invocable
+    template<class T, typename ...Args>
+    using result_of_t = std::invoke_result_t<T, Args...>;
+#else
+    template<class T, typename ...Args>
+    using result_of_t = typename std::result_of<T(Args...)>::type;
+#endif
 } // namespace util
 } // namespace ade
 

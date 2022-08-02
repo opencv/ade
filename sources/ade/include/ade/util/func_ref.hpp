@@ -43,7 +43,7 @@ public:
         m_context(reinterpret_cast<uintptr_t>(&callable)),
         m_func(&thunk<util::remove_reference_t<Callable>>)
     {
-        using actual_result_type = util::result_of_t<Callable(Args...)>;
+        using actual_result_type = util::result_of_t<Callable, Args...>;
 
         // If this condition doesn't hold, then thunk will return a reference
         // to the temporary returned by callable.
