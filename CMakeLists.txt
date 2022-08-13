@@ -17,6 +17,9 @@ option(BUILD_ADE_TUTORIAL      "Build tutorial samples"           OFF)
 option(FORCE_ADE_ASSERTS       "Always enable ADE_ASSERT"         OFF)
 option(BUILD_ADE_DOCUMENTATION "Build doxygen documentation"      OFF)
 
+set(ADE_CXX_STANDARD 11 CACHE STRING "C++ standard")
+set(CMAKE_CXX_STANDARD ${ADE_CXX_STANDARD})
+
 # TODO: this is horrible hack, we must follow cmake
 # build/install policy
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -44,7 +47,7 @@ function(add_security_flags target)
     endif()
 endfunction()
 
-set(CMAKE_CXX_STANDARD 11)
+# set(CMAKE_CXX_STANDARD 11)
 
 if (MSVC)
     add_definitions(-D_SCL_SECURE_NO_WARNINGS)

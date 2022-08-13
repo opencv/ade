@@ -10,6 +10,7 @@ jobs:
   Basic_Workflow:
     strategy:
       matrix:
+        version: [11, 14, 17, 20]
         os: [
             ubuntu-18.04,
             ubuntu-20.04,
@@ -22,8 +23,9 @@ jobs:
 
       - name: Build Stage
         run: |
+          echo ${{ matrix.os }}
           mkdir build && cd build
-          cmake -DENABLE_ADE_TESTING=ON -DCMAKE_BUILD_TYPE=Release ..
+          cmake -DENABLE_ADE_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=${{ matrix.version }} ..
           make -j
 
       - name: ADE-Test Stage
