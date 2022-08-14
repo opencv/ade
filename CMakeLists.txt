@@ -16,6 +16,7 @@ option(ENABLE_ADE_TESTING      "Build tests, require google test" OFF)
 option(BUILD_ADE_TUTORIAL      "Build tutorial samples"           OFF)
 option(FORCE_ADE_ASSERTS       "Always enable ADE_ASSERT"         OFF)
 option(BUILD_ADE_DOCUMENTATION "Build doxygen documentation"      OFF)
+option(BUILD_WITH_STATIC_CRT   "Build with static multi-threaded C Runtime (MS Windows/Visual Studio only)" OFF)
 
 set(CMAKE_CXX_STANDARD 11 CACHE STRING "C++ standard")
 
@@ -39,6 +40,9 @@ function(add_security_flags target)
         endif()
     elseif(WIN32)
         target_compile_options( ${target} PRIVATE /GS /DynamicBase)
+        if(BUILD_WITH_STATIC_CRT)
+            target_compile_options( ${target} PRIVATE "/MT")
+        endif()
         if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
             # These options for 32 bit builds only
             target_compile_options( ${target} PRIVATE /SAFESEH /NXCOMPAT )
