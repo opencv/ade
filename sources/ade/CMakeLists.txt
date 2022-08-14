@@ -51,15 +51,17 @@ include(GNUInstallDirs)
 
 install(TARGETS ade COMPONENT dev
         EXPORT adeTargets
-	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-install(EXPORT adeTargets DESTINATION share/ade COMPONENT dev)
+install(EXPORT adeTargets
+        DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/ade"
+        COMPONENT dev)
 
 install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/"
-        DESTINATION include COMPONENT dev
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} COMPONENT dev
         FILES_MATCHING PATTERN "*.hpp")
 
 include(CMakePackageConfigHelpers)
@@ -72,10 +74,10 @@ write_basic_package_version_file(
 configure_package_config_file(
         "${CMAKE_CURRENT_LIST_DIR}/cmake/adeConfig.cmake.in"
         "${CMAKE_BINARY_DIR}/adeConfig.cmake"
-        INSTALL_DESTINATION "share/ade"
+        INSTALL_DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/ade"
         NO_SET_AND_CHECK_MACRO
         NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 
 install(FILES "${CMAKE_BINARY_DIR}/adeConfig.cmake"
         "${CMAKE_BINARY_DIR}/adeConfigVersion.cmake"
-        DESTINATION "share/ade" COMPONENT dev)
+        DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/ade" COMPONENT dev)
