@@ -55,7 +55,7 @@ You can build library with hardened asserts via
 `-DFORCE_ADE_ASSERTS=ON` option, forcing `ADE_ASSERT` to be present
 even in release builds.
 
-This library only do error checking in debug or `FORCE_ADE_ASSERTS=ON`
+This library only does error checking in debug or `FORCE_ADE_ASSERTS=ON`
 builds due to performance reasons.  Library doesn't process any user
 input directly and doesn't read any files or sockets.  If you want to
 use this library to process any input from external source you must
@@ -67,7 +67,7 @@ can be found in `./doc` directory. Doxygen is required.
 ## Support
 
 Current ADE Framework support model is:
-* ADE Framework is mainly used a building block for other projects.
+* ADE Framework is mainly used as a building block for other projects.
 * ADE Framework major version are synchronized with that other
   projects releases.
 * ADE Framework accepts pull requests but is stabilized prior to a
