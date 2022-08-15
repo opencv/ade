@@ -1,6 +1,6 @@
 # ADE Framework
 
-[![Build Status](https://travis-ci.org/opencv/ade.svg?branch=master)](https://travis-ci.org/opencv/ade)
+[![Build Status](https://github.com/opencv/ade/actions/workflows/workflow.yaml/badge.svg)](https://github.com/opencv/ade/actions/workflows/workflow.yaml)
 
 ## Intro
 
