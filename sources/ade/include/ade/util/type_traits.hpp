@@ -10,10 +10,13 @@
 #define ADE_UTIL_TYPE_TRAITS_HPP
 
 #include <type_traits>
-#if defined (__has_include) && __has_include(<version>)
-    #include <version>
-#endif
 
+// NB: Had to write it like this due to MSVC warning C4067
+#if defined(__has_include)
+#if __has_include(<version>)
+#  include <version>
+#endif
+#endif
 
 namespace ade
 {
