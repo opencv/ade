@@ -78,6 +78,8 @@ configure_package_config_file(
         NO_SET_AND_CHECK_MACRO
         NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 
+export(TARGETS ade FILE "${CMAKE_BINARY_DIR}/adeTargets.cmake")
+
 install(FILES "${CMAKE_BINARY_DIR}/adeConfig.cmake"
         "${CMAKE_BINARY_DIR}/adeConfigVersion.cmake"
         DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/ade" COMPONENT dev)
