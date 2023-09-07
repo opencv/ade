@@ -10,7 +10,7 @@ processing and execution.
 
 ## Prerequisites and building
 
-The only prerequisites for library are CMake 3.2+ and a C++11
+The only prerequisites for library are CMake 3.5+ and a C++11
 compiler.
 
 Building:

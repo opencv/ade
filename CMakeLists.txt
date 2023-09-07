@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.5)
 
 project(ade)
 
@@ -39,13 +39,18 @@ function(add_security_flags target)
             target_compile_options( ${target} PRIVATE -fstack-protector-strong)
         endif()
     elseif(WIN32)
-        target_compile_options( ${target} PRIVATE /GS /DynamicBase)
-        if(BUILD_WITH_STATIC_CRT)
-            target_compile_options( ${target} PRIVATE "/MT")
-        endif()
-        if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
-            # These options for 32 bit builds only
-            target_compile_options( ${target} PRIVATE /SAFESEH /NXCOMPAT )
+        if( ${CMAKE_CXX_COMPILER_ID} STREQUAL "MSVC")
+            target_compile_options( ${target} PRIVATE /GS /DynamicBase)
+            if(BUILD_WITH_STATIC_CRT)
+                target_compile_options( ${target} PRIVATE "/MT")
+            endif()
+            if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
+                # These options for 32 bit builds only
+                target_compile_options( ${target} PRIVATE /SAFESEH /NXCOMPAT )
+            endif()
+        elseif(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
+            target_compile_definitions( ${target} PRIVATE _FORTIFY_SOURCE=2 )
+            target_compile_options( ${target} PRIVATE -fstack-protector-strong )
         endif()
     endif()
 endfunction()
