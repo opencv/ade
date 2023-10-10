@@ -42,4 +42,4 @@ jobs:
 
       - name: Test Stage
         shell: bash
-        run: ctest -C Release
+        run: cd build && ctest -C Release
