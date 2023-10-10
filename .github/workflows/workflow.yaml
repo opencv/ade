@@ -40,10 +40,6 @@ jobs:
             exit 1
           fi
 
-      - name: ADE-Test Stage
+      - name: Test Stage
         shell: bash
-        run: ./build/bin/ade-tests 
-
-      - name: CMN-Test Stage
-        shell: bash
-        run: ./build/bin/common-tests
+        run: ctest -C Release
