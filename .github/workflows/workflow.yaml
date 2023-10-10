@@ -28,8 +28,8 @@ jobs:
 
           if [ "$RUNNER_OS" == "Windows" ]; then
             cmake -DENABLE_ADE_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=${{ matrix.version }} ..
-            cmake --build . --target GTest
-            cmake --build .
+            cmake --build . --target GTest --config Release
+            cmake --build . --config Release
 
           elif [ "$RUNNER_OS" == "Linux" ]; then
             cmake -DENABLE_ADE_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=${{ matrix.version }} ..
