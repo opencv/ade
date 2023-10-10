@@ -27,7 +27,7 @@ jobs:
           mkdir build && cd build
 
           if [ "$RUNNER_OS" == "Windows" ]; then
-            cmake -DENABLE_ADE_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=${{ matrix.version }} -G Ninja ..
+            cmake -DENABLE_ADE_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=${{ matrix.version }} ..
             cmake --build . --target GTest
             cmake --build .
 
