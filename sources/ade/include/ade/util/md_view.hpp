@@ -44,7 +44,7 @@ inline SliceDimension make_dimension(int l, int s) //TODO: move to C++14
 }
 
 template<typename ParentT, typename DiffT = int>
-class MdViewIteratorImpl final : public std::iterator<std::random_access_iterator_tag, DiffT>
+class MdViewIteratorImpl final
 {
    ParentT* m_parent = nullptr;
    int m_currentPos = -1;
@@ -70,6 +70,13 @@ class MdViewIteratorImpl final : public std::iterator<std::random_access_iterato
 
    using diff_t = DiffT;
    using val_t = decltype(ParentT()[0]);
+
+   using iterator_category = std::random_access_iterator_tag;
+   using value_type = val_t;
+   using difference_type = diff_t;
+   using pointer = val_t*;
+   using reference = val_t&;
+
 public:
 
    MdViewIteratorImpl() = default;
