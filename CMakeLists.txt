@@ -18,7 +18,10 @@ option(FORCE_ADE_ASSERTS       "Always enable ADE_ASSERT"         OFF)
 option(BUILD_ADE_DOCUMENTATION "Build doxygen documentation"      OFF)
 option(BUILD_WITH_STATIC_CRT   "Build with static multi-threaded C Runtime (MS Windows/Visual Studio only)" OFF)
 
-set(CMAKE_CXX_STANDARD 11)
+if(NOT DEFINED CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 11)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+endif()
 
 # TODO: this is horrible hack, we must follow cmake
 # build/install policy
