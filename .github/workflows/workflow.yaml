@@ -12,14 +12,14 @@ jobs:
       matrix:
         version: [11, 14, 17, 20, 23]
         os: [
-            ubuntu-20.04,
             ubuntu-22.04,
+            ubuntu-24.04,
             windows-2022,
           ]
   
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Build Stage
         shell: bash
@@ -33,7 +33,7 @@ jobs:
 
           elif [ "$RUNNER_OS" == "Linux" ]; then
             cmake -DENABLE_ADE_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=${{ matrix.version }} ..
-            make -j
+            make -j2
 
           else
             echo "$RUNNER_OS not supported"

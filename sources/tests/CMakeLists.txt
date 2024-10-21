@@ -25,7 +25,7 @@ else()
     set(GTEST_LIBRARIES_PATH ${GTEST_INSTALL_DIR}/lib/)
 
     set(GTEST_LIB_PREFIX ${CMAKE_FIND_LIBRARY_PREFIXES})
-    if( WIN32 AND ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
+    if( WIN32 AND (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "MSVC"))
       # Somehow in this case we get GTest compiled as gtest.lib and
       # prefix equals to "pub;"
       # Workarounds, workarounds...
